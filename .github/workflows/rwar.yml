@@ -37,7 +37,7 @@ jobs:
         with:
           ref: ${{ github.event.inputs.branch }}
       - name: Remove v2
-        run: rm -rf okta
+        run: rm -rf okta openapi tests go.mod go.sum
       - name: Generate go client
         run: make v3-generate
       - run: make fmt
