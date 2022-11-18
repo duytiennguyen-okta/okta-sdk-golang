@@ -36,6 +36,8 @@ jobs:
         uses: actions/checkout@v3
         with:
           ref: ${{ github.event.inputs.branch }}
+      - name: Remove v2
+        run: rm -rf okta
       - name: Generate go client
         run: make v3-generate
       - run: make fmt
