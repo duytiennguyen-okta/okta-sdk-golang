@@ -38,11 +38,12 @@ jobs:
           ref: ${{ github.event.inputs.branch }}
       - name: Remove v2
         run: rm -rf okta openapi tests go.mod go.sum
+      - run: ls
       - name: Generate go client
         run: make v3-generate
       - run: make fmt
       - run: make import
-      - run: cd okta/v3 && mv go.mod go.sum ../../
+      - run: cd okta/v3 && mv go.mod go.sum ../../ && ls
       -
         name: Commit generated code
         uses: EndBug/add-and-commit@v9
